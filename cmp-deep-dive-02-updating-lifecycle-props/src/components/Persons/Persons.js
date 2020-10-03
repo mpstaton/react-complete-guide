@@ -31,6 +31,12 @@ class Persons extends Component {
     console.log(snapshot);
   }
 
+  //this lifecycle hook is used to clean up anything
+  //the code executes right before you remove a component
+  componentWillUnmount() {
+    console.log('[Persons.js] componentWillUnmount');
+  }
+
   render() {
     console.log('[Persons.js] rendering...');
     return this.props.persons.map((person, index) => {
