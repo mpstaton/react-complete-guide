@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import classes from './Cockpit.css';
 
 const cockpit = ( props ) => {
+  //the useEffect method will execute every time the component is loaded
+    useEffect(() => {
+      console.log('[Cockpit.js] useEffect');
+    });
+
     const assignedClasses = [];
     let btnClass = '';
     if (props.showPersons) {
