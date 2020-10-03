@@ -3,10 +3,14 @@ import React, { useEffect } from 'react';
 import classes from './Cockpit.css';
 
 const cockpit = ( props ) => {
-  //the useEffect method will execute every time the component is loaded
+  //the useEffect method will execute every time the component is loaded through the render cycle
     useEffect(() => {
       console.log('[Cockpit.js] useEffect');
-    });
+      setTimeout(() => {
+        alert('Saved data to cloud!');
+      }, 1000);
+      //the final argument declares the methods for which the useEffect is re-executed.
+    }, [props.persons]);
 
     const assignedClasses = [];
     let btnClass = '';
