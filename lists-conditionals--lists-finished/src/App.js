@@ -61,19 +61,30 @@ class App extends Component {
           {this.state.persons.map((person, index) => {
             return <Person
               click={() => this.deletePersonHandler(index)}
-              name={person.name} 
+              name={person.name}
               age={person.age}
               key={person.id}
               changed={(event) => this.nameChangedHandler(event, person.id)} />
           })}
         </div>
       );
+      //changes the style background property dynamically when the persons are showing
+      style.backgroundColor = 'red';
+    }
+
+    //dynamically assigns the className variable in the React componenet below.
+    let classes = [];
+    if (this.state.persons.length <= 2) {
+      classes.push('red');
+    }
+    if (this.state.persons.length <= 1) {
+      classes.push('bold');
     }
 
     return (
       <div className="App">
         <h1>Hi, I'm a React App</h1>
-        <p>This is really working!</p>
+        <p className={classes}>This is really working!</p>
         <button
           style={style}
           onClick={this.togglePersonsHandler}>Toggle Persons</button>
